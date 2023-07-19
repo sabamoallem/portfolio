@@ -3,7 +3,7 @@ const app = require("./app");
 
 (async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/gitportfolio");
+    await mongoose.connect("mongodb://localhost:27017/gitportfolio", { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("DB IS CONNECTED");
 
     const onListening = () => {
@@ -13,6 +13,6 @@ const app = require("./app");
     app.listen(5000, onListening);
   } catch (error) {
     console.error("error: ", error);
-    throw err;
+    throw error;
   }
 })();
