@@ -21,8 +21,8 @@ app.get("/photography", (req, res) => {
 });
 
 app.get("/order", (req, res) => {
-  // Handle order route
-  res.send("Order Now page");
+  // Serve the ordernow.html file for the "Order Now" page
+  res.sendFile(path.join(__dirname, "ordernow.html"));
 });
 
 module.exports = app;

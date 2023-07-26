@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Now</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+      height: 100vh;
+      margin: 0;
+      background-color: #EBE8DE;
+    }
+    .content {
+      margin-top: 20px; /* Add a small margin to separate the content from the top */
+      padding-left: 20px; /* Add left padding to align content better */
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h1 {
+      font-size: 36px;
+      margin: 0;
+      cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+    }
+    .divider {
+      font-size: 20px;
+    }
+    .form-container {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #3B4229;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .form-container label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .form-container input,
+    .form-container textarea,
+    .form-container select {
+      width: 300px;
+      padding: 8px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1 onclick="location.href='/'">SABAMOA</h1> <!-- Navigate to homepage on click -->
+    <span class="divider">|</span> <!-- Divider -->
+    <h2>Order Now</h2>
+  </div>
+
+  <!-- Center the form -->
+  <div class="form-container">
+    <form action="/submitOrder" method="post">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="paddleDesign">Paddle Design (What do you want included?):</label>
+      <textarea id="paddleDesign" name="paddleDesign" required></textarea>
+
+      <label for="size">Size:</label>
+      <select id="size" name="size" required>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </select>
+
+      <!-- Drop-down menu for selecting the organization -->
+      <label for="organization">Organization:</label>
+      <select id="organization" name="organization" required>
+        <option value="">Select an Organization</option>
+        <option value="Alpha Phi Alpha">Alpha Phi Alpha</option>
+        <option value="Alpha Kappa Alpha">Alpha Kappa Alpha</option>
+        <option value="Kappa Alpha Psi">Kappa Alpha Psi</option>
+        <option value="Omega Psi Phi">Omega Psi Phi</option>
+        <option value="Delta Sigma Theta">Delta Sigma Theta</option>
+        <option value="Phi Beta Sigma">Phi Beta Sigma</option>
+        <option value="Zeta Phi Beta">Zeta Phi Beta</option>
+        <option value="Sigma Gamma Rho">Sigma Gamma Rho</option>
+        <option value="Iota Phi Theta">Iota Phi Theta</option>
+      </select>
+
+      <!-- Center the "Submit Order" button -->
+      <div class="button-container">
+        <button type="submit">Submit Order</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
