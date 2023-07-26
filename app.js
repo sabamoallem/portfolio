@@ -14,8 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/paddles", (req, res) => {
-  // Handle paddles route
-  res.send("Paddles page");
+  // Send the paddles.html file
+  res.sendFile(path.join(__dirname, "paddles.html"));
 });
 
 app.get("/photography", (req, res) => {
@@ -53,12 +53,12 @@ async function sendEmailToAshleen(formData) {
   // Create a Nodemailer transporter using your email provider settings
   let transporter = nodemailer.createTransport({
     // Replace these options with your email provider settings
-    host: "smtp.example.com",
+    host: "smtp.gmail.com",
     port: 587,
     secure: false,
     auth: {
-      user: "your_email@example.com",
-      pass: "your_email_password",
+      user: "sabamoa.photography@gmail.com",
+      pass: "DST1913REDZ222!",
     },
   });
 
@@ -73,7 +73,7 @@ async function sendEmailToAshleen(formData) {
   `;
 
   let mailOptions = {
-    from: "moallema@oregonstate.edu", // Replace with your email address
+    from: "sabamoa.photography@gmail.com", // Replace with your email address
     to: "ashleen.moallem@gmail.com", // Replace with Ashleen's email address
     subject: "New Order", // Subject of the email
     text: emailText, // Plain text body of the email

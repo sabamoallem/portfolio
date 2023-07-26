@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paddles</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+      height: 100vh;
+      margin: 0;
+      background-color: #EBE8DE;
+    }
+    .content {
+      margin-top: 20px; /* Add a small margin to separate the content from the top */
+      padding-left: 20px; /* Add left padding to align content better */
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h1 {
+      font-size: 36px;
+      margin: 0;
+      cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+      color: #959F7C;
+    }
+    .divider {
+      font-size: 20px;
+    }
+    .paddles-container {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .paddle-card {
+      padding: 20px;
+      border: 1px solid #3B4229;
+      border-radius: 5px;
+      max-width: 300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .paddle-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .paddle-card h3 {
+      font-size: 24px;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    .paddle-card p {
+      font-size: 16px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1 onclick="location.href='/'">SABAMOA</h1> <!-- Navigate to homepage on click -->
+    <span class="divider">|</span> <!-- Divider -->
+    <h2>Paddles</h2>
+  </div>
+
+  <!-- Paddles cards -->
+  <div class="paddles-container">
+    <div class="paddle-card">
+      <img src="paddle1.jpg" alt="Paddle 1">
+      <h3>Paddle 1</h3>
+      <p>Details about Paddle 1</p>
+      <!-- Add more paddles as needed -->
+    </div>
+    <div class="paddle-card">
+      <img src="paddle2.jpg" alt="Paddle 2">
+      <h3>Paddle 2</h3>
+      <p>Details about Paddle 2</p>
+    </div>
+    <!-- Add more paddles as needed -->
+  </div>
+</body>
+</html>
