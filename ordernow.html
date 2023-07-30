@@ -2,115 +2,161 @@
 <html>
 <head>
   <title>Order Now</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Berkshire+Swash&display=swap');
+
     body {
       display: flex;
       flex-direction: column;
       align-items: center; /* Center content horizontally */
+      justify-content: center; /* Center content vertically */
       height: 100vh;
       margin: 0;
       background-color: #EBE8DE;
     }
     .content {
-      margin-top: 20px; /* Add a small margin to separate the content from the top */
-      padding-left: 20px; /* Add left padding to align content better */
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: center; /* Align content vertically */
+      gap: 20px; /* Increase the gap between "SABAMOA" and "Order Now" */
+      padding: 10px; /* Add padding to move content away from the edges */
+      margin-top: 0px; /* Reduce the distance between "SABAMOA" and the top of the screen */
     }
     h1 {
-      font-size: 36px;
-      margin: 0;
+      font-family: 'Berkshire Swash', cursive; /* Use the Berkshire Swash font */
+      font-size: 70px; /* Adjust the font size of the "SABAMOA" text */
+      color: #959F7C; /* Match the color to the button */
+      background-color: transparent; /* Remove background color */
+      border: none; /* Remove the border */
       cursor: pointer; /* Add pointer cursor to indicate it's clickable */
-      color: #959F7C;
+      padding: 10px 20px; /* Add padding to make it look like a button */
     }
-    .divider {
-      font-size: 20px;
+    h1:hover {
+      background-color: #959F7C; /* Change background color on hover */
+      color: #EBE8DE; /* Change text color on hover */
+    }
+    h2 {
+      font-family: 'Berkshire Swash', cursive;
+      font-size: 40px;
+      margin: 0;
+      color: #3B4229; 
+    }
+    .form-wrapper {
+      display: flex;
+      align-items: center; /* Center horizontally */
+      justify-content: center; /* Center vertically */
+      margin-top: 10px; /* Reduce the space between "SABAMOA" and the form */
+      gap: 20px; /* Adjust the gap between .content and .form-wrapper */
     }
     .form-container {
-      margin-top: 30px;
       padding: 20px;
-      border: 1px solid #3B4229;
-      border-radius: 5px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start; /* Align the form at the top left */
       gap: 20px;
+      max-width: 400px; /* Set maximum width for the form */
+      width: 100%; /* Fill the available width */
     }
     .form-container label {
       font-weight: bold;
       display: block;
       margin-bottom: 10px;
     }
-    .form-container input,
-    .form-container textarea,
-    .form-container select {
-      width: 300px;
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container select,
+    .form-container textarea {
+      width: 100%; /* Fill the available width */
       padding: 8px;
       font-size: 16px;
-      margin-bottom: 20px;
     }
     .button-container {
       display: flex;
-      flex-direction: column;
+      gap: 10px; /* Increase the gap between buttons */
       align-items: center;
       margin-top: 20px;
     }
     .button-container button {
       padding: 10px 20px;
-      font-size: 18px;
+      font-size: 30px; /* Update the font size to match the "SABAMOA" button */
+      font-family: 'Berkshire Swash', cursive; /* Use the Berkshire Swash font */
+      color: #3B4229; /* Match the color to "SABAMOA" text */
+      background-color: transparent; /* Remove button background color */
+      border: none; /* Remove the button border */
+      cursor: pointer; /* Add cursor pointer */
+      display: flex; /* Make the button a flex container */
+      align-items: center; /* Center the button text and icon vertically */
+    }
+    .button-container button:hover {
+      background-color: #3B4229; /* Change background color on hover */
+      color: #EBE8DE; /* Change text color on hover */
     }
   </style>
 </head>
 <body>
   <div class="content">
     <h1 onclick="location.href='/'">SABAMOA</h1> <!-- Navigate to homepage on click -->
-    <span class="divider">|</span> <!-- Divider -->
-    <h2>Order Now</h2>
+    <h2>Order Now</h2> <!-- Add "Order Now" next to "SABAMOA" -->
   </div>
 
   <!-- Center the form -->
-  <div class="form-container">
-    <form action="/submitOrder" method="post">
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" name="firstName" required>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <form action="/submitOrder" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
 
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-      <!-- Drop-down menu for selecting the organization -->
-      <label for="organization">Organization:</label>
-      <select id="organization" name="organization" required>
-        <option value="">Select an organization</option>
-        <option value="Alpha Phi Alpha">Alpha Phi Alpha</option>
-        <option value="Alpha Kappa Alpha">Alpha Kappa Alpha</option>
-        <option value="Kappa Alpha Psi">Kappa Alpha Psi</option>
-        <option value="Omega Psi Phi">Omega Psi Phi</option>
-        <option value="Delta Sigma Theta">Delta Sigma Theta</option>
-        <option value="Phi Beta Sigma">Phi Beta Sigma</option>
-        <option value="Zeta Phi Beta">Zeta Phi Beta</option>
-        <option value="Sigma Gamma Rho">Sigma Gamma Rho</option>
-        <option value="Iota Phi Theta">Iota Phi Theta</option>
-      </select>
+        <label for="paddleSize">Paddle Size:</label>
+        <select id="paddleSize" name="paddleSize" required>
+          <option value="">Select paddle size</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
 
-      <label for="size">Size:</label>
-      <select id="size" name="size" required>
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-      </select>
+        <label for="paddleBaseColor">Paddle Base Color:</label>
+        <select id="paddleBaseColor" name="paddleBaseColor" required>
+          <option value="">Select paddle base color</option>
+          <option value="Black">Black</option>
+          <option value="White">White</option>
+          <option value="Red">Red</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Purple">Purple</option>
+          <option value="Blue">Blue</option>
+          <option value="Brown">Brown</option>
+          <option value="Pink">Pink</option>
+          <option value="Green">Green</option>
+        </select>
 
-      <label for="paddleDesign">Paddle Design (What do you want included?):</label>
-      <textarea id="paddleDesign" name="paddleDesign" required></textarea>
+        <label for="organization">Organization:</label>
+        <select id="organization" name="organization" required>
+          <option value="">Select an organization</option>
+          <option value="Alpha Phi Alpha">Alpha Phi Alpha</option>
+          <option value="Alpha Kappa Alpha">Alpha Kappa Alpha</option>
+          <option value="Kappa Alpha Psi">Kappa Alpha Psi</option>
+          <option value="Omega Psi Phi">Omega Psi Phi</option>
+          <option value="Delta Sigma Theta">Delta Sigma Theta</option>
+          <option value="Phi Beta Sigma">Phi Beta Sigma</option>
+          <option value="Zeta Phi Beta">Zeta Phi Beta</option>
+          <option value="Sigma Gamma Rho">Sigma Gamma Rho</option>
+          <option value="Iota Phi Theta">Iota Phi Theta</option>
+        </select>
 
-      <!-- Center the "Submit Order" button -->
-      <div class="button-container">
-        <button type="submit">Submit Order</button>
-      </div>
-    </form>
+        <label for="paddleDesign">Paddle Design (What do you want included?):</label>
+        <textarea id="paddleDesign" name="paddleDesign" required></textarea>
+
+        <!-- Center the "Submit Order" button -->
+        <div class="button-container">
+          <button type="submit">Submit Order</button>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 </html>
