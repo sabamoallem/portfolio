@@ -8,14 +8,15 @@ const app = express();
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // Add support for parsing JSON
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "homepage.html"));
 });
 
 app.get("/paddles", (req, res) => {
-  // Send the paddles.html file
-  res.sendFile(path.join(__dirname, "paddles.html"));
+  // Handle paddles route
+  res.send("Paddles page");
 });
 
 app.get("/photography", (req, res) => {
@@ -32,55 +33,65 @@ app.post("/submitOrder", (req, res) => {
   const formData = req.body;
 
   // Validate the form data
-  if (!formData.firstName || !formData.lastName || !formData.email || !formData.paddleDesign || !formData.size || !formData.organization) {
-    return res.status(400).send("Please fill in all required fields."); // Return a 400 status if any field is missing
+  if (!formData.firstName || !formData.lastName || !formData.email || !formData.paddleDesign || !formData.paddleSize || !formData.organization) {
+    return res.status(400).json({ message: "Please fill in all required fields." }); // Return a 400 status if any field is missing
   }
 
   // Send the email
   sendEmailToAshleen(formData)
     .then(() => {
-      // Redirect the user back to the homepage or show a success message
-      res.redirect("/");
+      // Respond with a success message
+      res.status(200).json({ message: "Order submitted successfully." });
     })
     .catch((error) => {
       console.error("Error sending email:", error);
-      res.status(500).send("Error sending email. Please try again later."); // Return a 500 status if there was an error sending the email
+      res.status(500).json({ message: "Error sending email. Please try again later." }); // Return a 500 status if there was an error sending the email
     });
 });
 
-// Function to send email using Nodemailer
 async function sendEmailToAshleen(formData) {
-  // Create a Nodemailer transporter using your email provider settings
-  let transporter = nodemailer.createTransport({
-    // Replace these options with your email provider settings
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: "sabamoa.photography@gmail.com",
-      pass: "DST1913REDZ222!",
-    },
-  });
-
-  // Compose the email
-  let emailText = `
-    First Name: ${formData.firstName}
-    Last Name: ${formData.lastName}
-    Email: ${formData.email}
-    Paddle Design: ${formData.paddleDesign}
-    Size: ${formData.size}
-    Organization: ${formData.organization}
-  `;
-
-  let mailOptions = {
-    from: "sabamoa.photography@gmail.com", // Replace with your email address
-    to: "ashleen.moallem@gmail.com", // Replace with Ashleen's email address
-    subject: "New Order", // Subject of the email
-    text: emailText, // Plain text body of the email
-  };
-
-  // Send the email
-  await transporter.sendMail(mailOptions);
-}
+    // Create a Nodemailer transporter using your email provider settings
+    let transporter = nodemailer.createTransport({
+      // Replace these options with your email provider settings
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: "sabamoa.photography@gmail.com",
+        pass: "DST1913REDZ222!",
+      },
+    });
+  
+    // Compose the email
+    let emailText = `
+      Hello Sabamoa Photography,
+  
+      You have received a new order:
+  
+      First Name: ${formData.firstName}
+      Last Name: ${formData.lastName}
+      Email: ${formData.email}
+      Paddle Size: ${formData.paddleSize}
+      Paddle Base Color: ${formData.paddleBaseColor}
+      Organization: ${formData.organization}
+      Paddle Design: ${formData.paddleDesign}
+  
+      Thank you for your attention.
+  
+      Best regards,
+      Sabamoa Order Bot
+    `;
+  
+    let mailOptions = {
+      from: "sabamoa.photography@gmail.com", // Replace with your email address
+      to: "sabamoa.photography@gmail.com", // Replace with the recipient's email address
+      subject: "New Order", // Subject of the email
+      text: emailText, // Plain text body of the email
+    };
+  
+    // Send the email
+    await transporter.sendMail(mailOptions);
+  }
+  
 
 module.exports = app;
