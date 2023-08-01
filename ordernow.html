@@ -9,31 +9,31 @@
     body {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center content horizontally */
-      justify-content: center; /* Center content vertically */
+      align-items: center;
+      justify-content: center;
       height: 100vh;
       margin: 0;
       background-color: #EBE8DE;
     }
     .content {
       display: flex;
-      align-items: center; /* Align content vertically */
-      gap: 20px; /* Increase the gap between "SABAMOA" and "Order Now" */
-      padding: 10px; /* Add padding to move content away from the edges */
-      margin-top: 15px; /* Reduce the distance between "SABAMOA" and the top of the screen */
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      margin-top: 0px;
     }
     h1 {
-      font-family: 'Berkshire Swash', cursive; /* Use the Berkshire Swash font */
-      font-size: 70px; /* Adjust the font size of the "SABAMOA" text */
-      color: #959F7C; /* Match the color to the button */
-      background-color: transparent; /* Remove background color */
-      border: none; /* Remove the border */
-      cursor: pointer; /* Add pointer cursor to indicate it's clickable */
-      padding: 10px 20px; /* Add padding to make it look like a button */
+      font-family: 'Grenze Gotisch', cursive;
+      font-size: 90px;
+      color: #959F7C;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
     }
     h1:hover {
-      background-color: #959F7C; /* Change background color on hover */
-      color: #EBE8DE; /* Change text color on hover */
+      background-color: #959F7C;
+      color: #EBE8DE;
     }
     h2 {
       font-family: 'Berkshire Swash', cursive;
@@ -43,66 +43,66 @@
     }
     .form-wrapper {
       display: flex;
-      align-items: center; /* Center horizontally */
-      justify-content: center; /* Center vertically */
-      margin-top: 10px; /* Reduce the space between "SABAMOA" and the form */
-      gap: 20px; /* Adjust the gap between .content and .form-wrapper */
+      align-items: center;
+      justify-content: center;
+      margin-top: 0px;
+      gap: 20px;
     }
     .form-container {
-      padding: 20px;
+      padding: 5px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Align the form at the top left */
-      gap: 30px; /* Increase the gap between form elements */
-      max-width: 400px; /* Set maximum width for the form */
-      width: 100%; /* Fill the available width */
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 400px;
+      width: 100%;
     }
     .form-container label {
       font-weight: bold;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
     }
     .form-container input[type="text"],
     .form-container input[type="email"],
     .form-container select,
     .form-container textarea {
-      width: 100%; /* Fill the available width */
-      padding: 8px;
+      width: 100%;
+      padding: 10px;
       font-size: 16px;
     }
     .button-container {
       display: flex;
-      gap: 10px; /* Increase the gap between buttons */
+      gap: 10px;
       align-items: center;
-      margin-top: 20px;
+      justify-content: center;
+      margin-top: 10px;
     }
     .button-container button {
       padding: 10px 20px;
-      font-size: 30px; /* Update the font size to match the "SABAMOA" button */
-      font-family: 'Berkshire Swash', cursive; /* Use the Berkshire Swash font */
-      color: #3B4229; /* Match the color to "SABAMOA" text */
-      background-color: transparent; /* Remove button background color */
-      border: none; /* Remove the button border */
-      cursor: pointer; /* Add cursor pointer */
-      display: flex; /* Make the button a flex container */
-      align-items: center; /* Center the button text and icon vertically */
+      font-size: 30px;
+      font-family: 'Berkshire Swash', cursive;
+      color: #3B4229;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
     }
     .button-container button:hover {
-      background-color: #3B4229; /* Change background color on hover */
-      color: #EBE8DE; /* Change text color on hover */
+      background-color: #3B4229;
+      color: #EBE8DE;
     }
   </style>
 </head>
 <body>
   <div class="content">
-    <h1 onclick="location.href='/'">SABAMOA</h1> <!-- Navigate to homepage on click -->
-    <h2>Order Now</h2> <!-- Add "Order Now" next to "SABAMOA" -->
+    <h1 onclick="location.href='/'">SABAMOA</h1>
+    <h2>Order Now</h2>
   </div>
 
-  <!-- Center the form -->
   <div class="form-wrapper">
     <div class="form-container">
-      <form action="mailto:sabamoa.photography@gmail.com" method="post" enctype="text/plain">
+      <form action="/submitOrder" method="post">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required>
 
@@ -151,7 +151,6 @@
         <label for="paddleDesign">Paddle Design (What do you want included?):</label>
         <textarea id="paddleDesign" name="paddleDesign" required></textarea>
 
-        <!-- Center the "Submit Order" button -->
         <div class="button-container">
           <button type="submit">Submit Order</button>
         </div>
