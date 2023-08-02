@@ -102,7 +102,7 @@
 
   <div class="form-wrapper">
     <div class="form-container">
-      <form action="/submitOrder" method="post">
+      <form id="orderForm" action="/submitOrder" method="post" onsubmit="prepareEmail(event)">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required>
 
@@ -157,5 +157,24 @@
       </form>
     </div>
   </div>
+
+  <script>
+    function prepareEmail(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const subject = "New Order from " + formData.get("firstName") + " " + formData.get("lastName");
+      let body = "Order Details:\n";
+      body += "First Name: " + formData.get("firstName") + "\n";
+      body += "Last Name: " + formData.get("lastName") + "\n";
+      body += "Email: " + formData.get("email") + "\n";
+      body += "Paddle Size: " + formData.get("paddleSize") + "\n";
+      body += "Paddle Base Color: " + formData.get("paddleBaseColor") + "\n";
+      body += "Organization: " + formData.get("organization") + "\n";
+      body += "Paddle Design: " + formData.get("paddleDesign") + "\n";
+      const email = "sabamoa.photography@gmail.com";
+      const mailtoUrl = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      window.location.href = mailtoUrl;
+    }
+  </script>
 </body>
 </html>
