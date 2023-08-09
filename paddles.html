@@ -8,27 +8,30 @@
     body {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center content horizontally */
+      align-items: center;
       height: 100vh;
       margin: 0;
       background-color: #EBE8DE;
     }
     .content {
-      margin-top: 20px; /* Add a small margin to separate the content from the top */
-      padding-left: 20px; /* Add left padding to align content better */
+      margin-top: 20px;
+      padding-left: 20px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 30px; /* Increased gap between SABAMOA and Paddles */
     }
     h1 {
-      font-size: 36px;
+      font-size: 90px;
       font-family: 'Grenze Gotisch', cursive;
       margin: 0;
-      cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+      cursor: pointer;
       color: #959F7C;
     }
-    .divider {
-      font-size: 20px;
+    .section-title {
+      font-size: 40px;
+      font-family: 'Berkshire Swash', cursive;
+      margin: 0;
+      color: #3B4229;
     }
     .paddles-container {
       margin-top: 30px;
@@ -53,55 +56,60 @@
       margin-bottom: 20px;
     }
     .paddle-card h3 {
-      font-size: 24px;
+      font-size: 40px;
       margin: 0;
       margin-bottom: 10px;
+      font-family: 'Berkshire Swash', cursive;
+      color: #3B4229;
     }
     .paddle-card p {
-      font-size: 16px;
+      font-size: 20px;
       margin: 0;
+      color: #3B4229;
     }
 
     /* Style the "Order Now" button */
     .order-button {
-      color: #3B4229;
-      font-family: 'Berkshire Swash', cursive;
       font-size: 30px;
+      font-family: 'Berkshire Swash', cursive;
       cursor: pointer;
       position: absolute;
       top: 20px;
       right: 20px;
+      color: #3B4229;
     }
 
     .order-button:hover {
-      color: #959F7C;
+      background-color: #3B4229;
+      color: #EBE8DE;
     }
+
+    h1:hover{
+      background-color: #959F7C;
+      color: #EBE8DE;
+    }
+    
   </style>
 </head>
 <body>
   <div class="content">
-    <h1 onclick="location.href='/'">SABAMOA</h1> <!-- Navigate to homepage on click -->
-    <span class="divider">|</span> <!-- Divider -->
-    <h2>Paddles</h2>
+    <h1 onclick="location.href='/';">SABAMOA</h1>
+    <h2 class="section-title">Paddles</h2>
   </div>
 
-  <!-- Paddles cards -->
   <div class="paddles-container">
     <div class="paddle-card">
       <img src="paddle1.jpg" alt="Paddle 1">
       <h3>Paddle 1</h3>
       <p>Details about Paddle 1</p>
-      <!-- Add more paddles as needed -->
     </div>
     <div class="paddle-card">
       <img src="paddle2.jpg" alt="Paddle 2">
       <h3>Paddle 2</h3>
       <p>Details about Paddle 2</p>
     </div>
-    <!-- Add more paddles as needed -->
   </div>
 
-  <!-- Order Now button -->
-  <div class="order-button" onclick="location.href='/order'">Order Now</div>
+  <div class="order-button" onclick="location.href='/order';">Order Now</div>
 </body>
 </html>
