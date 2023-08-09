@@ -18,7 +18,7 @@
       padding-left: 20px;
       display: flex;
       align-items: center;
-      gap: 30px; /* Increased gap between SABAMOA and Paddles */
+      gap: 30px;
     }
     h1 {
       font-size: 90px;
@@ -84,11 +84,10 @@
       color: #EBE8DE;
     }
 
-    h1:hover{
+    h1:hover {
       background-color: #959F7C;
       color: #EBE8DE;
     }
-    
   </style>
 </head>
 <body>
@@ -99,15 +98,19 @@
 
   <div class="paddles-container">
     <div class="paddle-card">
-      <img src="paddle1.jpg" alt="Paddle 1">
-      <h3>Paddle 1</h3>
+      <div id="paddle1-container">
+        <img src="images/paddle1.jpg" alt="Paddle1" width="500" height="333">
+      </div>
       <p>Details about Paddle 1</p>
     </div>
     <div class="paddle-card">
-      <img src="paddle2.jpg" alt="Paddle 2">
+      <div id="paddle2-container">
+        <img src="images/paddle2.jpg" alt="Paddle 2">
+      </div>
       <h3>Paddle 2</h3>
       <p>Details about Paddle 2</p>
     </div>
+    <!-- Add more paddle-card divs for other paddles -->
   </div>
 
   <div class="order-button" onclick="location.href='/order';">Order Now</div>
