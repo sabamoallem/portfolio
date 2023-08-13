@@ -7,10 +7,10 @@ const app = require("./app");
     console.log("DB IS CONNECTED");
 
     const onListening = () => {
-      console.log("Listening on PORT 5000");
+      console.log("Listening on PORT 4444");
     };
 
-    app.listen(5000, onListening);
+    app.listen(4444, onListening);
   } catch (error) {
     console.error("error: ", error);
     throw error;
